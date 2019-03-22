@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+
+    <title>Slang Dictionary</title>
+
+    <link rel="stylesheet" href="/css/style.css"/>
+
+</head>
+
+<body ng-app="app">
+<h1>Slang Dictionary</h1>
+<div ng-controller="angularController" ng-init="loadSlangs()">
+
+
+    <dl></dl>
+    <p ng-hide="slangList.length > 0">Dictionary Empty</p>
+    <hr>
+    <table>
+           <tr ng-repeat="word in slangList">
+               <td class="term" ng-click="removeWord($index)">{{word.term}}</td>
+               <td class="meaning">{{word.defined}}</td>
+           </tr>
+    </table>
+    <form name="form">
+        <input type="text" id="term" name="term" placeholder="new term..."  ng-model="data.term" />
+        <input type="Text" name="defined" id="defined" placeholder="new definition..."  ng-model="data.definition" />
+        <button ng-click="addTerm()">Add Term</button>
+    </form>
+</div>
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script type="text/javascript" src="/js/bundle1.js"></script>
+
+</html>
